@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+
+5.times do 
+    user = User.create(name: Faker::Name.name, email: Faker::Internet.email)
+    3.times do 
+        user.boxes.create(amount_of_items: Faker::Number.digit, shipped: Faker::Boolean.boolean, shipping_date: Faker::Date.between(from: 5.days.ago, to: Date.today))
+    end
+end
